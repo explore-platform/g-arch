@@ -1,0 +1,72 @@
+@import './custom-button.css';
+@import './layout.css';
+@import './table.css';
+@import './checkbox.css';
+@import './scrollbar.css';
+
+@font-face {
+    font-family: "Geometria";
+    src: url("./fonts/geometria/Geometria.ttf") format("truetype");
+}
+
+:root{
+    --primary-color: rgb(83, 73, 152);
+    --primary-color: 83, 73, 152;
+    --secondary-color: rgb(198, 143, 10);
+    --secondary-color: 198, 143, 10;
+
+    --primary-color-light: rgb(171, 163, 224);
+    --primary-color-light: 171, 163, 224;
+
+    --primary-dark-color: rgb(65, 58, 109);
+    --primary-dark-color: 65, 58, 109;
+    --primary-dark-color-light: rgb(48, 43, 80);
+    --primary-dark-color-light: 48, 43, 80;
+
+    font-family: "Geometria";
+    --ion-font-family: "Geometria";
+}
+
+h1{
+    font-weight: 800;
+    color:rgb(var(--primary-color));
+}
+h2{
+    display: inline-block;
+    color:rgb(var(--primary-color));
+    position: relative;
+}
+    h2:after{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: rgb(var(--secondary-color));
+        left:50%;
+        transform: translateX(-50%);
+        bottom: -8px;
+    }
+h3{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    /* justify-content: center; */
+    color:rgb(var(--primary-color), 0.7);
+    margin-top:0px;
+}
+    h3:after{
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: rgb(var(--secondary-color));
+        left:50%;
+        transform: translateX(-50%);
+        bottom: -8px;
+    }
+
+.no-data{
+    font-weight: 800;
+    color: rgba(128, 128, 128, 0.479);
+    text-align: center;
+}

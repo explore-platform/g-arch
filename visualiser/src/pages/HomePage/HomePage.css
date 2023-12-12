@@ -1,0 +1,215 @@
+.app-logo{
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.help-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.script-input{
+}
+    .script-input .tab{
+        padding:7px 20px!important;
+        font-size: 13px;
+    }
+    .script-input .tab-content{
+        padding:10px 20px;
+    }
+
+.input-file-fields{
+    display: flex;
+    align-items: flex-start;
+}
+    .input-file-fields > *{
+        flex:1 0;
+        margin: 0px 5px;
+    }
+
+.operations-bar{
+    display: flex;
+    justify-content: space-between;
+}
+    .operation-buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .operation-buttons > *{
+        margin-right: 10px;
+    }
+
+.script-status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    .script-status label{
+        font-weight: 800;
+        font-size: 10px;
+        padding-top:2px;
+        /* color: rgb(var(--primary-color)); */
+        text-transform: uppercase;
+        margin-right:5px;
+    }
+    .script-status .script-status-tag{
+        --status-color: rgb(68, 68, 68);
+        background-color: var(--status-color);
+        color:white;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding:5px 10px; 
+        border-radius: 5px;
+        font-size: 10px;
+    }
+    .script-status .script-status-tag.starting{
+        --status-color: rgb(56, 57, 66);
+    }
+    .script-status .script-status-tag.running{
+        --status-color: rgb(37, 64, 124);
+    }
+    .script-status .script-status-tag.finished{
+        --status-color: rgb(37, 124, 59);
+    }
+        .script-status .script-status-tag.finished.SIGKILL{
+            --status-color: rgb(201, 189, 27);
+        }
+        .script-status .script-status-tag.finished.ERROR{
+            --status-color: rgb(116, 30, 19);
+        }
+        .script-status .script-status-tag.finished.SUCCESS{
+            --status-color: rgb(55, 128, 65);
+        }
+
+
+
+/*  ==================================
+    LOGS 
+    ================================== */
+.script-logs{
+    background-color: rgb(26, 26, 26);
+    padding:10px;
+    font-size: 12px;
+    color:white;
+    border-radius: 5px;
+    max-height: 400px;
+    width: 800px;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+    .script-log{
+        display: flex;
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+        .script-log:nth-of-type(2n){
+            background-color: rgba(121, 121, 121, 0.096);
+        }
+
+        .script-log-line{
+            flex: 0 0 30px;
+            padding-top:2px;
+            padding-left:2px;
+            font-size: 10px;
+            border-right:1px solid rgba(142, 148, 151, 0.397);
+            margin-right:5px;
+            text-align: left;
+            color:rgb(142, 148, 151);
+        }
+        .script-log-date{
+            flex: 0 0 170px;
+            text-align: left;
+            color:rgb(129, 181, 211);
+        }
+        .script-log-message{
+            white-space: pre;
+            flex: 1 0;
+            text-align: left;word-break: break-all;
+        }
+
+.setting-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.setting-section{
+    flex:1 0;
+    /* display: flex; */
+    margin: 10px;
+    padding: 20px;
+    background-color: rgb(var(--primary-color), 0.05);
+    box-shadow: 0px 01px 7px 0px rgba(14, 14, 14, 0.144);
+    border-radius: 10px;
+}
+
+.input-row{
+    display: flex;
+}
+
+
+.input-row > *{
+    flex: 1 1 auto;
+    margin:5px 10px;
+}
+
+
+
+
+
+.element-selection{
+    padding:0px 10px;
+
+}
+.elements-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.element{
+    display: flex;
+    /* align-items: center; */
+    padding:3px 5px;
+    margin-right: 10px;
+    /* background-color: rgba(230, 230, 230, 0.699); */
+    cursor: pointer;
+    transition: 0.2s;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0.5;
+}
+    .element.toggled{
+        opacity: 1;
+    }
+
+    .element-checkbox{
+        cursor: pointer;
+        width: 13px;
+        height: 13px;
+        border-radius: 3px;
+        border: 1px solid rgba(22, 22, 22, 0.288);
+        font-size: 7px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+        margin-right: 5px;
+        margin-bottom: 3px;
+    }
+        .element-checkbox svg{
+            /* padding-top:2px; */
+        }
+        .element.toggled .element-checkbox{
+            background-color: rgb(var(--primary-color),0.8);
+            border: 1px solid rgb(var(--primary-color),0.8)!important;
+            color:white;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        }

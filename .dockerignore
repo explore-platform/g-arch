@@ -1,0 +1,10 @@
+#ignore git and cache folders
+
+__APP_DATA
+__USER_APP_DATA
+__USER_DATA
+.git
+.cache
+.temp
+node_modules
+visualiser/node_modules

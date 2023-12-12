@@ -1,0 +1,40 @@
+.custom-button{
+    display: inline-flex;
+    padding:5px 15px;
+    color: rgb(var(--button-color)); 
+    border: 2px solid rgb(var(--button-color));
+    background-color: transparent;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    --button-color: var(--primary-color);
+}
+    .custom-button:hover{
+        color: white;
+        background-color: rgb(var(--button-color));
+    }
+.custom-button *{
+    cursor: pointer;
+}
+
+    .custom-button > i, .custom-button > svg {
+        margin-right: 5px;
+    }
+
+.custom-button.red{
+    --button-color: rgb(182, 52, 52);
+    --button-color: 182, 52, 52;
+}
+.custom-button.rounded{
+    border-radius: 3px;
+}
+.custom-button.shadow{
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.123);
+}
+
+.custom-button.disabled{
+    pointer-events: none;
+
+    --button-color: 150,150,150;
+}

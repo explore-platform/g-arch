@@ -1,0 +1,111 @@
+
+.csv-table-top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    
+    /*  =================================
+        EXPORT
+        =================================*/
+    .csv-table-export{
+        display: flex;
+        align-items: center;
+    }
+        .csv-table-export label{
+            font-size: 12px;
+            font-weight: 800;
+            color:rgb(59, 59, 59);
+            margin-right:10px;
+        }
+
+
+
+/*  =================================
+    FILTERS
+    =================================*/
+.csv-table-filters{
+    display: flex;
+}  
+    /*  =================================
+        SELECTED VALUES
+        =================================*/
+    .csv-table-selected-values{
+        margin:10px 0px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+        .csv-table-selected-value{
+            font-weight: 800;
+            font-size: 13px;
+            color:rgb(var(--primary-color));
+            padding:5px;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+            .csv-table-selected-value:hover{
+                opacity: 1;
+                text-decoration: line-through;
+            }
+
+
+/*  =================================
+    SORT
+    =================================*/
+.csv-table-sowrapper{
+    transition: 0.1s;
+}  
+    .csv-table-sowrapper.active{
+        background-color: rgba(216, 216, 216, 0.15);
+    }  
+    .csv-table-sort{
+        width: 100%;
+        display: flex;
+        transition: 0.1s;
+        padding-bottom: 2px;
+        cursor: pointer;
+    }  
+        .csv-table-socolumn{
+            padding-top: 2px;
+            
+        }  
+        .csv-table-sodirections{
+            display: flex;
+            flex-direction: column;
+            margin-left:5px;
+        }  
+            .csv-table-sodirection{
+                height: 4px;
+                padding-bottom:1px;
+                opacity: 0.4;
+                transition: 0.1s;
+                cursor: pointer;
+            }
+                .csv-table-sodirection:hover{
+                    opacity: 0.7;
+                }  
+                .csv-table-sodirection.active{
+                    opacity: 1;
+                    
+                }  
+
+/*  =================================
+    LEGEND
+    =================================*/
+.table-legend {
+    font-size: 12px;
+    text-align: right;
+    font-style: italic;
+    color:rgb(237 160 92);
+}
+.csv-table{
+    /* overflow: auto; */
+    /* display: flex; */
+    min-height: 0;
+}
+.csv-table-results{
+    overflow: auto;
+    /* min-width: 0; */
+    width: 100%;
+}

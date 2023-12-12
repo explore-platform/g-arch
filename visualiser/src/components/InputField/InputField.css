@@ -1,0 +1,82 @@
+@import './SelectInputField.css';
+@import './BooleanInputField.css';
+@import './FileInputField.css';
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* flex: 1 0; */
+    align-items: flex-start;
+    margin-bottom: 10px;
+    --label-color:var(--secondary-color);
+    --input-color:var(--primary-color);
+    --input-background-color:235, 235, 235;
+    transition: 0.2s;
+}
+    .input-field label{
+        /* display: inline-block; */
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 6px;
+        color:rgb(var(--label-color));
+        transition: 0.2s;    
+        white-space: nowrap;
+    }
+    .input-field input,
+    .input-field textarea,
+    .input-field .input-file
+    {
+        /* flex: 0 1 auto; */
+        border: none;
+        background-color: rgb(var(--input-background-color),0.5);
+        padding:5px;
+        border-bottom: 2px solid rgb(var(--input-color),0.7);
+        transition: 0.2s;
+        width: 100%;
+    }
+        .input-field input:focus {
+            border-bottom: 2px solid rgb(var(--input-color), 1);
+            background-color: rgb(var(--input-background-color));
+            outline: none;
+        }
+
+    
+.input-field.disabled{
+    --label-color: 100,100,100;
+    --input-color: 150,150,150;
+}
+
+
+
+.input-field-message{
+    --input-message-color: rgb(190, 112, 39);
+    color:var(--input-message-color);
+    font-weight: 800;
+    padding: 5px;
+    font-size: 12px;
+    text-align: left;
+}
+.input-field-message.info{
+    --input-message-color: rgb(var(--primary-color));
+
+}
+
+
+.help-tooltip{
+    position: absolute;
+    top:0px;
+    right:5px;
+    font-size: 14px;
+    color:rgb(var(--primary-color));
+    opacity: 0.5;
+    transition: 0.2s;
+    cursor: help;
+}
+    .help-tooltip:hover{
+        opacity: 1;
+    }
+
+.help-tooltip-tooltip{
+    font-size: 13px!important;
+}

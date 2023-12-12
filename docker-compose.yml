@@ -1,0 +1,105 @@
+version: '3.3'
+
+services:
+  # ======================================
+  # -- PROXY
+  # ======================================
+  proxy:
+    image: 'traefik:2.4'
+    ports:
+      # - 8080:8080
+      - 8015:80
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    command:
+      - '--api.insecure=true'
+      - '--entryPoints.web.address=:80'
+      - '--providers.docker=true'
+      - '--serverstransport.insecureskipverify=true'
+      - '--api=true'
+      - '--api.debug=true'
+      - '--log.level=INFO'
+
+
+  # ======================================
+  # -- VISUALISER
+  # ======================================
+  visualiser:
+    build:
+      context: .
+      dockerfile: ./visualiser/_local/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./visualiser/:/sda/visualiser/
+    ports:
+      - 8000:8000
+    labels:
+        traefik.enable: 'true'
+
+        traefik.http.routers.app.entrypoints: 'web'
+        traefik.http.routers.app.rule: 'HostRegexp(`{host:.+}`)'
+
+        traefik.http.services.app.loadbalancer.server.scheme: 'http'
+        traefik.http.services.app.loadbalancer.server.port: '8000'
+
+  # ======================================
+  # -- API
+  # ======================================
+  api:
+    build:
+      context: .
+      dockerfile: ./api/_local/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./api/:/sda/api/
+      - ./science/:/sda/science/
+      - ./__APP_DATA/:$SERVICE_APP_DATA
+      - ./__INPUT_DATA/:$SERVICE_INPUT_DATA
+      - ./__OUTPUT_DATA/:$SERVICE_OUTPUT_DATA
+      - ./__USER_APP_DATA/:$SERVICE_USER_APP_DATA
+      - ./__USER_DATA/:$SERVICE_USER_DATA
+    ports:
+      - 3030:3000
+    labels:
+        traefik.enable: 'true'
+
+        traefik.http.routers.api.entrypoints: 'web'
+        traefik.http.routers.api.rule: 'HostRegexp(`{host:.+}`) && PathPrefix(`/api/`)'
+        traefik.http.routers.api.middlewares: 'api-strip-prefix'
+        traefik.http.middlewares.api-strip-prefix.stripprefix.prefixes: '/api/'
+
+        traefik.http.services.api.loadbalancer.server.scheme: 'http'
+        traefik.http.services.api.loadbalancer.server.port: '3000'
+
+
+
+  # ======================================
+  # -- SCIENCE-API
+  # ======================================
+  science-api:
+    build:
+      context: .
+      dockerfile: ./science-api/_local/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./science-api/:/sda/science-api/
+      - ./__APP_DATA/:$SERVICE_APP_DATA
+      - ./__INPUT_DATA/:$SERVICE_INPUT_DATA
+      - ./__OUTPUT_DATA/:$SERVICE_OUTPUT_DATA
+      - ./__USER_APP_DATA/:$SERVICE_USER_APP_DATA
+      - ./__USER_DATA/:$SERVICE_USER_DATA
+    ports:
+      - 3040:5000
+    labels:
+        traefik.enable: 'true'
+
+        traefik.http.routers.science-api.entrypoints: 'web'
+        traefik.http.routers.science-api.rule: 'HostRegexp(`{host:.+}`) && PathPrefix(`/science-api/`)'
+        traefik.http.routers.science-api.middlewares: 'science-api-strip-prefix'
+        traefik.http.middlewares.science-api-strip-prefix.stripprefix.prefixes: '/science-api/'
+
+        traefik.http.services.science-api.loadbalancer.server.scheme: 'http'
+        traefik.http.services.science-api.loadbalancer.server.port: '5000'

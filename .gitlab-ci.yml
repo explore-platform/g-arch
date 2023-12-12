@@ -1,0 +1,15 @@
+stages:
+    - build
+  
+variables:
+    SDA_IMG: gitlabreg.acri-cwa.fr/project-explore/garch-java-module:$CI_BUILD_REF_NAME
+
+before_script:
+  - docker info
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlabreg.acri-cwa.fr
+
+build app:
+  stage: build
+  script:
+    - docker build ./ -t ${SDA_IMG} -f ./_prod/Dockerfile
+    - docker push ${SDA_IMG}

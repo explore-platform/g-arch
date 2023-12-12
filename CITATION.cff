@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: G-Arch
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Louis
+    family-names: Kleverman
+    email: louis.kleverman@acri-st.fr
+    affiliation: ACRI-ST
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.6670298
+repository-code: 'https://github.com/explore-platform/g-arch'
+url: 'https://explore-platform.eu'
+repository: ''
+repository-artifact: ''
+abstract: |-
+  The EXPLORE G-Arch app allows users to retrieve stellar parameters from Gaia RVS spectra using the Mattisse algorithm.
+keywords:
+  - EXPLORE
+  - Horizon 2020
+  - galactic
+license: Apache-2.0
+version: v1
+date-released: '2023-07-01'

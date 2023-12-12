@@ -1,0 +1,21 @@
+.loading{
+    display: flex;
+}
+
+.loading .loading-icon{
+    animation: logo-spin infinite 2s linear;
+}
+
+.loading > label{
+    margin-left: 5px;
+}
+
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

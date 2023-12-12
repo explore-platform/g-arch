@@ -1,0 +1,38 @@
+.plot-selected{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+    .plot-selected > .custom-button{
+        margin-top:25px;
+    }
+
+
+    .plot-selected .select-input{
+        flex:1 0;
+        margin-right: 10px;
+        margin-bottom: 0px;
+    }
+
+    .plot-selected-info{
+        flex:1 0;
+        align-items: center;
+        display: flex;
+        margin-bottom:5px;
+        padding:8px 10px;
+        font-weight: 800;
+        border-radius: 3px;
+        background-color: #f7f7f7;
+        box-shadow: 0px 0px 5px 0px rgba(26, 26, 26, 0.274);
+        margin: 20px 5px;
+    }
+        .plot-selected-info svg{
+            font-size: 18px;
+            margin-right: 10px;
+            color:rgb(197, 197, 197);
+        }
+        .plot-selected-info label{
+            font-size: 11px;
+            line-height: 11px;
+        }

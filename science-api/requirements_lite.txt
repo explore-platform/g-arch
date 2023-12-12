@@ -1,0 +1,7 @@
+orjson==3.9.1
+fastapi[all]==0.95.0
+uvicorn[standard]==0.21.1
+astropy==5.2.2
+numpy==1.25.0
+astroquery==0.4.6
+pandas==2.0.3

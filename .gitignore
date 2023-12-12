@@ -1,0 +1,15 @@
+*.pyc
+**/*pyc
+**/*pycache*
+.temp/
+_data/
+node_modules
+./matissev4
+api/?
+api/*.log
+
+__OUTPUT_DATA
+
+__APP_DATA/science/*
+__INPUT_DATA/input.fits
+__USER_APP_DATA

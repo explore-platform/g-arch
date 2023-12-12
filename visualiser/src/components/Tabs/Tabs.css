@@ -1,0 +1,43 @@
+.tabs{
+    
+}
+    .tab-bar{
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid rgba(145, 145, 145, 0.178);
+    }
+        .tab-bar .tab{
+            display: flex;
+            align-items: center;
+            padding:10px 20px;
+            font-weight: 800;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: 0.2s;
+            position: relative;
+            color: rgb(var(--font-color));
+        }
+            .tab-bar .tab:after{
+                content:'';
+                position: absolute;
+                bottom:-2px;
+                left:0;
+                width: 0%;
+                height: 3px;
+                background: rgb(var(--primary-color));
+                transition: 0.2s;
+            }
+            .tab-bar .tab:hover{
+                opacity: 0.8;
+            }
+            .tab-bar .tab.selected{
+                opacity: 1;
+            }
+                .tab-bar .tab.selected:after{
+                    width: 100%;
+                }
+            .tab-bar .tab i,
+            .tab-bar .tab svg
+            {
+                margin-right:10px;
+            }

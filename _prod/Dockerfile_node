@@ -1,0 +1,56 @@
+# =============================================
+# -- PHASE 1 :  build typescript projects
+# =============================================
+FROM node:18.12.1 as buildstage
+
+# -----------------------
+# VISUALISER
+# -----------------------
+WORKDIR /visualiser
+# COPY ./visualiser/package*.json ./
+COPY ./visualiser/ .
+RUN npm i
+# RUN export VITE_BUILD_DATE=$(date +%Y-%m-%dT%H:%M:%S)
+RUN export VITE_BUILD_DATE=$(date +%Y-%m-%dT%H:%M:%S) && npm run build
+
+# =============================================
+# -- PHASE 2 :  copy build then run 
+#               all apps to serve in ubuntu 
+#               for all in one docker
+# =============================================
+FROM node:18.16.1-alpine3.18
+
+RUN apk add --no-cache --update openjdk11 nginx python3 
+
+# RUN apk add --no-cache --update rust curl musl-dev gcc g++ gfortran python3-dev openblas-dev
+# RUN node --version
+# RUN ln -sf python3 /usr/bin/python
+# RUN python3 -m ensurepip
+# RUN pip3 install --no-cache --upgrade pip setuptools
+
+WORKDIR /sda
+
+# -----------------------
+# VISUALISER
+# -----------------------
+COPY --from=buildstage /visualiser/build/ /usr/share/nginx/html
+
+# -----------------------
+# API
+# -----------------------
+# Build API 
+COPY ./api/ ./api
+WORKDIR /sda/api
+RUN npm i
+RUN npm run build
+WORKDIR /sda/
+
+# COPY CONF
+COPY ./_prod/nginx.conf /etc/nginx/nginx.conf
+# COPY The htaccess
+COPY ./_prod/default.conf /etc/nginx/conf.d/default.conf
+
+# RUN apk del rust curl musl-dev gcc g++ gfortran python3-dev openblas-dev
+
+COPY entrypoint_node.sh ./entrypoint.sh
+ENTRYPOINT ./entrypoint.sh

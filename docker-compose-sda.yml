@@ -1,0 +1,126 @@
+version: '3.3'
+
+services:
+  # ======================================
+  # -- PROXY
+  # ======================================
+  proxy:
+    image: 'traefik:2.4'
+    ports:
+      # - 8080:8080
+      - 8015:80
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    command:
+      - '--api.insecure=true'
+      - '--entryPoints.web.address=:80'
+      - '--providers.docker=true'
+      - '--serverstransport.insecureskipverify=true'
+      - '--api=true'
+      - '--api.debug=true'
+      - '--log.level=INFO'
+
+
+  # # ======================================
+  # # -- sda
+  # # ======================================
+  # sda:
+  #   build:
+  #     context: .
+  #     dockerfile: ./_prod/Dockerfile
+  #     # dockerfile: ./_prod/Dockerfile_lite
+  #   entrypoint: /bin/sh /sda/entrypoint.sh
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - SERVICE_PREFIX=/sda/
+  #   ports:
+  #     - 8080:8100
+  #     - 3010:3000
+  #   volumes:
+  #     - ./__APP_DATA/:$SERVICE_APP_DATA
+  #     - ./__INPUT_DATA/:$SERVICE_INPUT_DATA
+  #     - ./__OUTPUT_DATA/:$SERVICE_OUTPUT_DATA
+  #     - ./__USER_APP_DATA/:$SERVICE_USER_APP_DATA
+  #     - ./__USER_DATA/:$SERVICE_USER_DATA
+  #     - ./_prod/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./_prod/default.conf:/etc/nginx/conf.d/default.conf
+  #   labels:
+  #       traefik.enable: 'true'
+
+  #       traefik.http.routers.sda.entrypoints: 'web'
+  #       traefik.http.routers.sda.rule: 'HostRegexp(`{host:.+}`) && PathPrefix(`/sda/`)'
+  #       traefik.http.routers.sda.middlewares: 'sda-strip-prefix'
+  #       traefik.http.middlewares.sda-strip-prefix.stripprefix.prefixes: '/sda/'
+
+  #       traefik.http.services.sda.loadbalancer.server.scheme: 'http'
+  #       traefik.http.services.sda.loadbalancer.server.port: '8100'
+
+
+  # ======================================
+  # -- sda
+  # ======================================
+  sda-lite:
+    build:
+      context: .
+      dockerfile: ./_prod/Dockerfile_lite
+    env_file:
+      - .env
+    environment:
+      - SERVICE_PREFIX=/sda/
+    ports:
+      - 8080:8100
+      - 3010:3000
+    volumes:
+      - ./__APP_DATA/:$SERVICE_APP_DATA
+      - ./__INPUT_DATA/:$SERVICE_INPUT_DATA
+      - ./__OUTPUT_DATA/:$SERVICE_OUTPUT_DATA
+      - ./__USER_APP_DATA/:$SERVICE_USER_APP_DATA
+      - ./__USER_DATA/:$SERVICE_USER_DATA
+      - ./_prod/nginx.conf:/etc/nginx/nginx.conf
+      - ./_prod/default.conf:/etc/nginx/conf.d/default.conf
+    labels:
+        traefik.enable: 'true'
+
+        traefik.http.routers.sda.entrypoints: 'web'
+        traefik.http.routers.sda.rule: 'HostRegexp(`{host:.+}`) && PathPrefix(`/sda/`)'
+        traefik.http.routers.sda.middlewares: 'sda-strip-prefix'
+        traefik.http.middlewares.sda-strip-prefix.stripprefix.prefixes: '/sda/'
+
+        traefik.http.services.sda.loadbalancer.server.scheme: 'http'
+        traefik.http.services.sda.loadbalancer.server.port: '8100'
+
+  # # ======================================
+  # # -- sda node
+  # # ======================================
+  # sda_node:
+  #   build:
+  #     context: .
+  #     # dockerfile: ./_prod/Dockerfile
+  #     dockerfile: ./_prod/Dockerfile_node
+  #   # entrypoint: /bin/sh /sda/entrypoint.sh
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - SERVICE_PREFIX=/sda/
+  #   ports:
+  #     - 8080:8100
+  #     - 3010:3000
+  #   volumes:
+  #     - ./__APP_DATA/:$SERVICE_APP_DATA
+  #     - ./__INPUT_DATA/:$SERVICE_INPUT_DATA
+  #     - ./__OUTPUT_DATA/:$SERVICE_OUTPUT_DATA
+  #     - ./__USER_APP_DATA/:$SERVICE_USER_APP_DATA
+  #     - ./__USER_DATA/:$SERVICE_USER_DATA
+  #     - ./_prod/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./_prod/default.conf:/etc/nginx/conf.d/default.conf
+  #   labels:
+  #       traefik.enable: 'true'
+
+  #       traefik.http.routers.sda.entrypoints: 'web'
+  #       traefik.http.routers.sda.rule: 'HostRegexp(`{host:.+}`) && PathPrefix(`/sda/`)'
+  #       traefik.http.routers.sda.middlewares: 'sda-strip-prefix'
+  #       traefik.http.middlewares.sda-strip-prefix.stripprefix.prefixes: '/sda/'
+
+  #       traefik.http.services.sda.loadbalancer.server.scheme: 'http'
+  #       traefik.http.services.sda.loadbalancer.server.port: '8100'

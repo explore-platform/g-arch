@@ -1,0 +1,45 @@
+# metadata
+title: G-Arch
+abstract: "The EXPLORE G-Arch app allows users to retrieve stellar parameters from Gaia RVS spectra using the Mattisse algorithm."
+keyword: 
+  - "EXPLORE"
+  - "Horizon 2020"
+documentation: "README.md"
+landingPage: "https://explore-platform.eu/sda/g-arch"
+version: 0.0.1 # major.minor.build (e.g. 0.1.0)
+issued: "2022-09-04"
+gitRepository: "https://github.com/explore-platform/g-arch"
+citation: "https://doi.org/10.5281/zenodo.6670298"
+copyright: "Apache License 2.0"
+distribution:
+  license: "Apache License 2.0"
+doi:
+  creator: "https://zenodo.org/"
+  notation: "https://doi.org/10.5281/zenodo.6670298"
+  schemaAgency: "Zenodo"
+funding: "This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 101004214."
+funder: "European Commission"
+project: "EXPLORE"
+contactPoint:
+  email: "nick.cox@acri-st.fr"
+  id: ""
+  organisation-name: "ACRI-ST"
+  role: "EXPLORE project manager"
+  url: "https://astro.acri-st.fr"
+creator:
+  homepage: "https://explore-platform.eu"
+  id: ""
+  logo: ""
+  name: "EXPLORE"
+  nick: "EXPLORE"
+author:
+    name: "Louis Kleverman"
+    email: "louis.kleverman@acri-st.fr"
+    URI: ""
+    affiliation: "ACRI-ST"
+publisher:
+  homepage: #URL
+  id: #URI of the publisher
+  logo: #URI to logo image for the organisation
+  name: #name of the organisation
+  nick: #short name / acronym of organisation

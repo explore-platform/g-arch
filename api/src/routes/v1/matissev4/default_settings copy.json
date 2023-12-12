@@ -1,0 +1,58 @@
+{
+    "gaia.matisse.data_dir": "/home/ncox/Downloads/matisseV4/data/MARCS",
+    "gaia.matisse.spectra_subdir": "Spectra",
+    "gaia.matisse.spectra_filename": "inputApsisVal3.1f.fits",
+
+    "gaia.matisse.initspec": 20,
+    "gaia.matisse.finalspec": 25,
+
+    "gaia.matisse.algorithm": "MatisseGauguin",
+    "gaia.matisse.mode": "MATISSE1",
+    "matisse.data.CoeffRegr_dir": "Grid4d/Coeff_Regr/Landweber/MIX_75_MAX_VST",
+    "matisse.data.Bfunction_dir": "Grid4d/Bfunctions/Landweber/MIX_75_MAX_VST",
+    "gaia.matisse.B0methodTeff": "InvDirect",
+    "gaia.matisse.B0methodLogg": "InvDirect",
+    "gaia.matisse.B0methodMeta": "InvDirect",
+    "gaia.matisse.B0methodAlfa": "InvDirect",
+    "gaia.matisse.idinit": "_MinErr",
+    "gaia.matisse.BfmethodTeff": "Landweber",
+    "gaia.matisse.BfmethodLogg": "Landweber",
+    "gaia.matisse.BfmethodMeta": "Landweber",
+    "gaia.matisse.BfmethodAlfa": "Landweber",
+    "gaia.matisse.iteration": 10,
+    "gaia.matisse.mcmc_iterations": 10,
+    "gaia.matisse.degas.scale": 0.2,
+    "gaia.matisse.gk_distance_max": 0.1,
+    "gaia.matisse.nominal_spectra_filename": "RVS2020_Grid4_LR_FilledByNice_800pix.fits",
+    "gaia.matisse.data.grid_parameters_subdir": "Grid4d/Parameters_Grid",
+    "gaia.matisse.grid_parameters_filename": "RVS2020_Grid4_LR_FilledByNice.param",
+
+    "gaia.matisse.normalization": true,
+    "gaia.matisse.norm_method": "claire,5,5",
+
+    "gaia.matisse.is_grid_elements_use": true,
+    "gaia.matisse.elements_filename_list": "UltimateLineList.txt",
+    "gaia.matisse.data.grid_5d_parameters.subdir": "Grid5d",
+    "gaia.matisse.grid_elements_filename_list": "FE0:Ultimate_Fe.param,FE1:Ultimate_Fe.param,FE2:Ultimate_Fe.param,FE3:Ultimate_Fe.param,FE4:Ultimate_Fe.param,FE5:Ultimate_Fe.param,FE6:Ultimate_Fe.param,FE7:Ultimate_Fe.param,TI0:Ultimate_Ti.param,TI1:Ultimate_Ti.param,TI2:Ultimate_Ti.param,SI0:Ultimate_Si.param,SI1:Ultimate_Si.param,SI2:Ultimate_Si.param,SIX0:Ultimate_SiX.param,SIX1:Ultimate_SiX.param,SIX2:Ultimate_SiX.param,NI0:Ultimate_Ni.param,CA0:Ultimate_Ca.param,CA1:Ultimate_Ca.param,CA2:Ultimate_Ca.param,CA3:Ultimate_Ca.param,CA4:Ultimate_Ca.param,CA5:Ultimate_Ca.param,CA6:Ultimate_Ca.param,CR0:Ultimate_Cr.param,CR1:Ultimate_Cr.param,CRX0:Ultimate_CrX.param,S0:Ultimate_S.param,S1:Ultimate_S.param,N0:Ultimate_N.param,N1:Ultimate_N.param,CE0:Ultimate_Ce.param,ND0:Ultimate_Nd.param,ZR0:Ultimate_Zr.param,MG0:Ultimate_Mg.param,FEX0:Ultimate_FeX.param",
+    "gaia.matisse.spectra_elements_filename_list": "FE0:Ultimate_Fe_0.fits,FE1:Ultimate_Fe_1.fits,FE2:Ultimate_Fe_2.fits,FE3:Ultimate_Fe_3.fits,FE4:Ultimate_Fe_4.fits,FE5:Ultimate_Fe_5.fits,FE6:Ultimate_Fe_6.fits,FE7:Ultimate_Fe_7.fits,TI0:Ultimate_Ti_0.fits,TI1:Ultimate_Ti_1.fits,TI2:Ultimate_Ti_2.fits,SI0:Ultimate_Si_0.fits,SI1:Ultimate_Si_1.fits,SI2:Ultimate_Si_2.fits,SIX0:Ultimate_SiX_0.fits,SIX1:Ultimate_SiX_1.fits,SIX2:Ultimate_SiX_2.fits,NI0:Ultimate_Ni_0.fits,CA0:Ultimate_Ca_0.fits,CA1:Ultimate_Ca_1.fits,CA2:Ultimate_Ca_2.fits,CA3:Ultimate_Ca_3.fits,CA4:Ultimate_Ca_4.fits,CA5:Ultimate_Ca_5.fits,CA6:Ultimate_Ca_6.fits,CR0:Ultimate_Cr_0.fits,CR1:Ultimate_Cr_1.fits,CRX0:Ultimate_CrX_0.fits,S0:Ultimate_S_0.fits,S1:Ultimate_S_1.fits,N0:Ultimate_N_0.fits,N1:Ultimate_N_1.fits,CE0:Ultimate_Ce_0.fits,ND0:Ultimate_Nd_0.fits,ZR0:Ultimate_Zr_0.fits,MG0:Ultimate_Mg_0.fits,FEX0:Ultimate_FeX_0.fits",
+    
+    "gaia.matisse.Photometry": false,
+    "gaia.matisse.photometry_subdir": "Photometry",
+    "gaia.matisse.photometryFile": "photometry_all_uves.txt",
+
+    "gaia.matisse.is_dib": true,
+
+    "gaia.matisse.is_plot": true,
+    "gaia.matisse.is_plot_debug": true,
+    "gaia.matisse.is_plot_visible": false,
+    "gaia.matisse.plot_directory": null,
+
+    "gaia.matisse.snr": false,
+    "gaia.matisse.snr_filename": "snr.txt",
+
+    "gaia.matisse.reconstruction.saved": true,
+    "gaia.matisse.reconstruction_filename": "reconstructed.fits",
+
+    "gaia.matisse.OutputFile": "demoComplete.txt",
+    "gaia.matisse.evolution_filename": "evolutionsDemoComplete.txt"
+}
