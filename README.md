@@ -5,7 +5,7 @@
 
 ## Local installation
 
-G-Arch can be run locally at `http://0.0.0.0` (here a path_prefix is defined in the docker-compose.yml):
+G-Arch can be run locally at `http://localhost:8000/`:
 
     git clone https://github.com/explore-platform/g-arch.git
     cd g-arch
